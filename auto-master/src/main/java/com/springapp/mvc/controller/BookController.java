@@ -31,7 +31,7 @@ public class BookController {
     public String getBooks(Model model) {
         List<Book> books = this.bookRepository.listAll();
 
-        model.addAttribute("books1", books);
+        model.addAttribute("books", books);
 
         return "index";
     }

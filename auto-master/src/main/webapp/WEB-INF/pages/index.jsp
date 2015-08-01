@@ -2,35 +2,44 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Book Managger</title>
+    <title>Library</title>
 </head>
 <body>
 <div>
-    <h1>BookManager</h1>
-    <c:if test="${!empty books1}">
+    <h1>Library</h1>
+    <c:if test="${!empty books}">
         <table>
             <tr>
-                <td>Name</td>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Year</td>
                 <td>Genre</td>
                 <td></td>
-                <td>About</td>
+                <td>Description</td>
                 <td></td>
-
+                <td>Rating</td>
+                <td>Count</td>
             </tr>
-            <c:forEach items="${books1}" var="book">
+            <c:forEach items="${books}" var="book">
                 <tr>
 
                     <td>${book.name}</td>
+                    <td>${book.author}</td>
+                    <td>${book.year}</td>
                     <td>
                             ${book.genre}
                     <td>
                     <td>
                             ${book.about}
                     <td>
+                    <td>${book.rating}</td>
+                    <td>${book.count}</td>
                     <td><a href="/deleteBook/${book.iD}">Delete</a>
                     <td>
                     <td><a href="/correctBook/${book.iD}">Correct</a>
                     <td>
+                    <td><a href="viewComments">View comments</a>
+                    </td>
                 </tr>
 
             </c:forEach>
@@ -38,6 +47,6 @@
     </c:if>
 
 </div>
-<a href="addBook">AddBook</a>
+<a href="addBook">Add</a>
 </body>
 </html>
